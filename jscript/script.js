@@ -37,5 +37,8 @@ console.log('discountU18', discountU18);
 const discountO65 = 0.4;
 console.log('discountO65', discountO65);
 
- 
+// Fase di recupero dati
+const kmTot = prompt('Per favore inserisci i km che percorrerai', '100');
+const age = prompt('Per favore inserisci la tua età', '40');
+console.log(`kmTot, ${kmTot}; age, ${age}`);
 
