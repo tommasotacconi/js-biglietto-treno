@@ -12,21 +12,21 @@ biglietto e lo sconto applicato in base all'età
 7. calcola il prezzo del biglietto ticketPrice moltiplicando kmTot
 per costKm 
 8. verifica se l'età è minore di 18, qualora lo sia calcola lo sconto
-in discountAmountU18 come ticketPrice * discountU18 e lo sottrae a
+in discountAmount come ticketPrice * discountU18 e lo sottrae a
 ticketPrice, sovrascrive quindi con questo ultimo risultato il valore
 di ticketPrice
 9. verifica se l'età è maggiore di 65, qualora lo sia calcola lo sconto
-in discountAmountO65 come ticketPrice * discountO65 e lo sottrae a
+in discountAmount come ticketPrice * discountO65 e lo sottrae a
 ticketPrice, sovrascrivendo poi con questo risultato ticketPrice
 10. arrotonda a due cifre decimali la const ticketPrice
-11. verifica se esiste una delle due tipologie di sconto, quindi
+11. stampa in pagina il prezzo di ticketPrice
+12. verifica se esiste una delle due tipologie di sconto, quindi
 stampa il relativo sconto
-12. stampa in pagina il prezzo di ticketPrice
 */
 
 // Fase preparatoria
 // 1.
-const resultElement = document.querySelector('.resume');
+let resultElement = document.querySelector('.resume');
 console.log(resultElement);
 // 2.
 const costKm = 0.21; //euro al km
@@ -50,21 +50,31 @@ let ticketPrice = kmTot * costKm;
 console.log('ticketPrice', ticketPrice);
 
 let message;
-
+let discountAmount;
 // 8.
 if (age < 18) {  
-  discountAmountU18 = ticketPrice * discountU18;
-  ticketPrice -= discountAmountU18;
-  message = `${discountAmountU18} discountAmountU18, ticketPrice ${ticketPrice}`;
+  discountAmount = ticketPrice * discountU18;
+  ticketPrice -= discountAmount;
+  message = `${discountAmount} discountAmount, ticketPrice ${ticketPrice}`;
 }
 // 9.
 else if (age > 65) {
-  discountAmountO65 = ticketPrice * discountO65;
-  ticketPrice -= discountAmountO65;
-  message = `${discountAmountO65} discountAmountO65, ticketPrice ${ticketPrice}`;
+  discountAmount = ticketPrice * discountO65;
+  ticketPrice -= discountAmount;
+  message = `${discountAmount} discountAmount, ticketPrice ${ticketPrice}`;
 }
 // 9.
 if (message) {console.log(message)};
 // 10.
 ticketPrice = Math.round(ticketPrice * 100) / 100;
 console.log(ticketPrice);
+
+// Fase di restituzione risultati
+document.querySelector('.intro').style.display = 'none';
+// 11.
+resultElement.innerHTML = `Il tuo biglietto costa <b>${ticketPrice}</b> euro. `;
+// 12.
+if (discountAmount) {
+  resultElement.innerHTML += `Ti è stato applicato uno sconto di euro ${discountAmount}.`;
+}
+ 

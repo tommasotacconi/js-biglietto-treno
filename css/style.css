@@ -10,21 +10,21 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-header {
-    /* position: fixed;
+/* header {
+    position: fixed;
     left: 0px;
     top: 0px;
     z-index: 1;
     width: 100%; 
     color: white;
     font-weight: 600;
-    font-size: 12px; */
+    font-size: 12px;
 }
 
 footer {
-    /* padding: 30px;
-    color: white; */
-}
+    padding: 30px;
+    color: white;
+} */
 
 /* nav {
     line-height: 30px;
@@ -61,3 +61,12 @@ footer {
 } */
 
 /* Utilities */
+p:first-child {
+    margin-top: 180px;
+    padding: 0 10px;
+}
+
+p.resume {
+    margin-top: 15px;
+    padding: 0 10px;
+}
